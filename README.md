@@ -18,7 +18,7 @@ $ cargo run --bin [NAME OF BINARY] < input.txt
 
 Check below for the names of the binaries for all the puzzles:
 
-| Day | Name | Part 1 Binary | Part 2 Binary |
+| Day | Name | Part 1 Solution Binary | Part 2 Solution Binary |
 |:-:|:-:|:-:|:-:|
-| 1 | Report Repair | `day1_part1` | `day1_part2` |
-| 2 | Password Philosophy | `day2_part1` | `day2_part2` |
+| 1 | Report Repair | `day1_part1` ([Code](src/bin/day1_part1.rs)) | `day1_part2` ([Code](src/bin/day1_part2.rs))  |
+| 2 | Password Philosophy | `day2_part1` ([Code](src/bin/day2_part1.rs)) | `day2_part2` ([Code](src/bin/day2_part2.rs))  |
