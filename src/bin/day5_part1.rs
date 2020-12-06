@@ -21,7 +21,8 @@ fn main() {
 fn solve(lines: &Vec<String>) -> i32 {
   lines.iter()
     .map(|s| to_seat_id(s))
-    .fold(0, |max, num| std::cmp::max(max, num))
+    .max()
+    .unwrap()
 }
 
 fn to_seat_id(word: &str) -> i32 {
