@@ -25,3 +25,4 @@ Check below for the names of the binaries for all the puzzles:
 | 3 | Toboggan Trajectory | `day3_part1` ([Code](src/bin/day3_part1.rs)) | `day3_part2` ([Code](src/bin/day3_part2.rs))  |
 | 4 | Passport Processing | `day4_part1` ([Code](src/bin/day4_part1.rs)) | `day4_part2` ([Code](src/bin/day4_part2.rs))  |
 | 5 | Binary Boarding | `day5_part1` ([Code](src/bin/day5_part1.rs)) | `day5_part2` ([Code](src/bin/day5_part2.rs))  |
+| 6 | Custom Customs | `day6_part1` ([Code](src/bin/day6_part1.rs)) | `day6_part2` ([Code](src/bin/day6_part2.rs))  |
