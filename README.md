@@ -20,9 +20,10 @@ Check below for the names of the binaries for all the puzzles:
 
 | Day | Name | Part 1 Solution Binary | Part 2 Solution Binary |
 |:-:|:-:|:-:|:-:|
-| 1 | Report Repair | `day1_part1` ([Code](src/bin/day1_part1.rs)) | `day1_part2` ([Code](src/bin/day1_part2.rs))  |
-| 2 | Password Philosophy | `day2_part1` ([Code](src/bin/day2_part1.rs)) | `day2_part2` ([Code](src/bin/day2_part2.rs))  |
-| 3 | Toboggan Trajectory | `day3_part1` ([Code](src/bin/day3_part1.rs)) | `day3_part2` ([Code](src/bin/day3_part2.rs))  |
-| 4 | Passport Processing | `day4_part1` ([Code](src/bin/day4_part1.rs)) | `day4_part2` ([Code](src/bin/day4_part2.rs))  |
-| 5 | Binary Boarding | `day5_part1` ([Code](src/bin/day5_part1.rs)) | `day5_part2` ([Code](src/bin/day5_part2.rs))  |
-| 6 | Custom Customs | `day6_part1` ([Code](src/bin/day6_part1.rs)) | `day6_part2` ([Code](src/bin/day6_part2.rs))  |
+| 1 | Report Repair | `day1_part1` ([Code](src/bin/day1_part1.rs)) | `day1_part2` ([Code](src/bin/day1_part2.rs)) |
+| 2 | Password Philosophy | `day2_part1` ([Code](src/bin/day2_part1.rs)) | `day2_part2` ([Code](src/bin/day2_part2.rs)) |
+| 3 | Toboggan Trajectory | `day3_part1` ([Code](src/bin/day3_part1.rs)) | `day3_part2` ([Code](src/bin/day3_part2.rs)) |
+| 4 | Passport Processing | `day4_part1` ([Code](src/bin/day4_part1.rs)) | `day4_part2` ([Code](src/bin/day4_part2.rs)) |
+| 5 | Binary Boarding | `day5_part1` ([Code](src/bin/day5_part1.rs)) | `day5_part2` ([Code](src/bin/day5_part2.rs)) |
+| 6 | Custom Customs | `day6_part1` ([Code](src/bin/day6_part1.rs)) | `day6_part2` ([Code](src/bin/day6_part2.rs)) |
+| 7 | Handy Haversacks | `day7_part1` ([Code](src/bin/day7_part1.rs)) | `day7_part2` ([Code](src/bin/day7_part2.rs)) |
