@@ -27,3 +27,4 @@ Check below for the names of the binaries for all the puzzles:
 | 5 | Binary Boarding | `day5_part1` ([Code](src/bin/day5_part1.rs)) | `day5_part2` ([Code](src/bin/day5_part2.rs)) |
 | 6 | Custom Customs | `day6_part1` ([Code](src/bin/day6_part1.rs)) | `day6_part2` ([Code](src/bin/day6_part2.rs)) |
 | 7 | Handy Haversacks | `day7_part1` ([Code](src/bin/day7_part1.rs)) | `day7_part2` ([Code](src/bin/day7_part2.rs)) |
+| 8 | Handheld Halting | `day8_part1` ([Code](src/bin/day8_part1.rs)) | `day8_part2` ([Code](src/bin/day8_part2.rs)) |
