@@ -21,7 +21,7 @@ fn main() {
   println!("{}", solve(&number_list));
 }
 
-fn solve(number_list: &Vec<i32>) -> i32 {
+fn solve(number_list: &Vec<i64>) -> i64 {
   let mut numbers = number_list.clone();
 
   // Add the starting point
@@ -33,16 +33,16 @@ fn solve(number_list: &Vec<i32>) -> i32 {
   // Count arrangement
 
   // Bad: too slow
-  // count_distinct(&numbers[..], 0)
+  // count_distinct(&numbers[1..], 0)
 
   // Another way: divide the list into multiple sublists
   count_distinct_dc(&numbers)
 }
 
 // dc: divide and conquer
-// ignore the numbers that must exist
-fn count_distinct_dc(numbers: &Vec<i32>) -> i32 {
-  let mut count = 1;
+// ignore the numbers that must exist, count only the parts that might change
+fn count_distinct_dc(numbers: &Vec<i64>) -> i64 {
+  let mut count: i64 = 1;
   let mut start_idx = None;
 
   for idx in 1 .. numbers.len() {
@@ -52,7 +52,6 @@ fn count_distinct_dc(numbers: &Vec<i32>) -> i32 {
       }
     } else if numbers[idx] - numbers[idx - 1] == 3 {
       let start = start_idx.unwrap();
-      println!("{:?}", &numbers[start .. idx]);
       count *= count_distinct(&numbers[start .. idx], numbers[start - 1]);
 
       // Reset the range
@@ -60,10 +59,15 @@ fn count_distinct_dc(numbers: &Vec<i32>) -> i32 {
     }
   }
 
+  // Handle the final range (if it exist)
+  if let Some(start) = start_idx {
+    count *= count_distinct(&numbers[start ..], numbers[start - 1]);
+  }
+
   count
 }
 
-fn count_distinct(numbers: &[i32], last_output: i32) -> i32 {
+fn count_distinct(numbers: &[i64], last_output: i64) -> i64 {
   if numbers.is_empty() {
     1
   } else {
@@ -85,7 +89,7 @@ mod tests {
 
   #[test]
   fn test1() {
-    let number_list: Vec<i32> = vec![
+    let number_list: Vec<i64> = vec![
       16,
       10,
       15,
@@ -103,7 +107,7 @@ mod tests {
 
   #[test]
   fn test2() {
-    let number_list: Vec<i32> = vec![
+    let number_list: Vec<i64> = vec![
       28,
       33,
       18,
