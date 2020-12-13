@@ -73,14 +73,14 @@ fn occupy_or_abandon(seats: Vec<Vec<Seat>>) -> (Vec<Vec<Seat>>, bool) {
     for (x, seat) in row.iter().enumerate() {
       if let Some(new_seat) = match *seat {
         Seat::Empty => {
-          if count_adjacent_occupied(&seats, x, y) == 0 {
+          if count_visible_occupied(&seats, x, y) == 0 {
             Some(Seat::Occupied)
           } else {
             None
           }
         },
         Seat::Occupied => {
-          if count_adjacent_occupied(&seats, x, y) >= 4 {
+          if count_visible_occupied(&seats, x, y) >= 5 {
             Some(Seat::Empty)
           } else {
             None
@@ -100,28 +100,47 @@ fn occupy_or_abandon(seats: Vec<Vec<Seat>>) -> (Vec<Vec<Seat>>, bool) {
   (new_seats, has_changed)
 }
 
-fn count_adjacent_occupied(
+fn count_visible_occupied(
   seats: &Vec<Vec<Seat>>,
   x: usize, y: usize,
 ) -> usize {
-  let start_x = if x > 0 { x - 1 } else { 0 };
-  let start_y = if y > 0 { y - 1 } else { 0 };
-  let end_x = std::cmp::min(seats[0].len() - 1, x + 1) + 1;
-  let end_y = std::cmp::min(seats.len() - 1, y + 1) + 1;
-
   let mut count = 0;
 
-  for cx in start_x .. end_x {
-    for cy in start_y .. end_y {
-      if cx == x && cy == y {
-        continue;
-      } else if seats[cy][cx] == Seat::Occupied {
+  for dir_x in -1 .. 2 {
+    for dir_y in -1 .. 2 {
+      if dir_x == 0 && dir_y == 0 {
+        continue
+      } else if has_visible_occupied(seats, x, y, dir_x, dir_y) {
         count += 1;
       }
     }
   }
 
   count
+}
+
+fn has_visible_occupied(
+  seats: &Vec<Vec<Seat>>,
+  x: usize, y: usize,
+  dir_x: isize, dir_y: isize
+) -> bool {
+  let mut cx: isize = x as isize + dir_x;
+  let mut cy: isize = y as isize + dir_y;
+
+  while cx >= 0 && cy >= 0 &&
+    cx < seats[0].len() as isize && cy < seats.len() as isize {
+    
+    match seats[cy as usize][cx as usize] {
+      Seat::Occupied => return true,
+      Seat::Empty => return false,
+      _ => {} // continue search
+    }
+
+    cx += dir_x;
+    cy += dir_y;
+  }
+
+  return false;
 }
 
 #[cfg(test)]
@@ -142,6 +161,6 @@ mod tests {
       "L.LLLLLL.L",
       "L.LLLLL.LL",
     ].into_iter().map(|s| s.to_owned()).collect();
-    assert_eq!(solve(lines), 37);
+    assert_eq!(solve(lines), 26);
   }
 }
