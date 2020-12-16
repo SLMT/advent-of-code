@@ -31,3 +31,4 @@ Check below for the names of the binaries for all the puzzles:
 | 9 | Encoding Error | `day9_part1` ([Code](src/bin/day9_part1.rs)) | `day9_part2` ([Code](src/bin/day9_part2.rs)) |
 | 10 | Adapter Array | `day10_part1` ([Code](src/bin/day10_part1.rs)) | `day10_part2` ([Code](src/bin/day10_part2.rs)) |
 | 11 | Seating System | `day11_part1` ([Code](src/bin/day11_part1.rs)) | `day11_part2` ([Code](src/bin/day11_part2.rs)) |
+| 12 | Rain Risk | `day12_part1` ([Code](src/bin/day12_part1.rs)) | `day12_part2` ([Code](src/bin/day12_part2.rs)) |
