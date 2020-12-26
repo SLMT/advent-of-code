@@ -1,3 +1,16 @@
+///
+/// I have to admit that my solution is way more complicated than the solution 
+/// that we need to solve this problem. I originally assumed that the number of 
+/// 'X' bits shown in the masks from inputs were much more, so I implemented a 
+/// compact trie, which I redesign to make it faster and smaller. However, after
+///  I checked other solutions written by other people, I found that this
+/// problem can be easily solved by brute-force all possible addresses.
+///
+/// If you are looking for a quick solution for this problem, the following is
+/// definately not what you want.
+///
+/// by SLMT (27th Dec 2020)
+///
 
 use std::io;
 
