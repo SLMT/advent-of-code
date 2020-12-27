@@ -34,3 +34,4 @@ Check below for the names of the binaries for all the puzzles:
 | 12 | Rain Risk | `day12_part1` ([Code](src/bin/day12_part1.rs)) | `day12_part2` ([Code](src/bin/day12_part2.rs)) |
 | 13 | Shuttle Search | `day13_part1` ([Code](src/bin/day13_part1.rs)) | `day13_part2` ([Code](src/bin/day13_part2.rs)) |
 | 14 | Docking Data | `day14_part1` ([Code](src/bin/day14_part1.rs)) | `day14_part2` ([Code](src/bin/day14_part2.rs)) |
+| 15 | Rambunctious Recitation | `day15_part1` ([Code](src/bin/day15_part1.rs)) | `day15_part2` ([Code](src/bin/day15_part2.rs)) |
