@@ -36,5 +36,5 @@ Check below for the names of the binaries for all the puzzles:
 | 14 | Docking Data | `day14_part1` ([Code](src/bin/day14_part1.rs)) | `day14_part2` ([Code](src/bin/day14_part2.rs)) |
 | 15 | Rambunctious Recitation | `day15_part1` ([Code](src/bin/day15_part1.rs)) | `day15_part2` ([Code](src/bin/day15_part2.rs)) |
 | 16 | Ticket Translation | `day16_part1` ([Code](src/bin/day16_part1.rs)) | `day16_part2` ([Code](src/bin/day16_part2.rs)) |
-| 17 | Conway Cubes | TODO | TODO |
+| 17 | Conway Cubes | `day17_part1` ([Code](src/bin/day17_part1.rs)) | `day17_part2` ([Code](src/bin/day17_part2.rs)) |
 | 18 | Operation Order | `day18_part1` ([Code](src/bin/day18_part1.rs)) | `day18_part2` ([Code](src/bin/day18_part2.rs)) |
