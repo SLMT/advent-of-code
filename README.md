@@ -38,3 +38,4 @@ Check below for the names of the binaries for all the puzzles:
 | 16 | Ticket Translation | `day16_part1` ([Code](src/bin/day16_part1.rs)) | `day16_part2` ([Code](src/bin/day16_part2.rs)) |
 | 17 | Conway Cubes | `day17_part1` ([Code](src/bin/day17_part1.rs)) | `day17_part2` ([Code](src/bin/day17_part2.rs)) |
 | 18 | Operation Order | `day18_part1` ([Code](src/bin/day18_part1.rs)) | `day18_part2` ([Code](src/bin/day18_part2.rs)) |
+| 19 | Monster Messages | `day19_part1` ([Code](src/bin/day19_part1.rs)) | `day19_part2` ([Code](src/bin/day19_part2.rs)) |

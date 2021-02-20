@@ -88,34 +88,34 @@ fn check(
   rules: &HashMap<i32, Rule>,
   test_string: &str,
 ) -> bool {
-  if let Some(len) = check_rule(&rules, &test_string, 0) {
-    len == test_string.len()
-  } else {
-    false
+  for matched_length in check_rule(&rules, &test_string, 0) {
+    if matched_length == test_string.len() {
+      return true;
+    }
   }
+  false
 }
 
 fn check_rule(
   rules: &HashMap<i32, Rule>,
   test_string: &str,
   rule_id: i32
-) -> Option<usize> {
-  println!("Check {} with {}", rule_id, test_string);
+) -> Vec<usize> {
   match rules.get(&rule_id).unwrap() {
     Rule::RuleList(list) => {
       check_rule_list(rules, list, test_string)
     },
     Rule::OneOfRuleLists(list_a, list_b) => {
-      check_rule_list(rules, list_a, test_string)
-        .or_else(|| {
-          check_rule_list(rules, list_b, test_string)
-        })
+      let mut matched_starts1 = check_rule_list(rules, list_a, test_string);
+      let mut matched_starts2 = check_rule_list(rules, list_b, test_string);
+      matched_starts1.append(&mut matched_starts2);
+      matched_starts1
     },
     Rule::Text(text) => {
       if let Some(0) = test_string.find(text) {
-        Some(text.len())
+        vec![text.len()]
       } else {
-        None
+        vec![]
       }
     }
   }
@@ -125,18 +125,24 @@ fn check_rule_list(
   rules: &HashMap<i32, Rule>,
   rule_list: &Vec<i32>,
   test_string: &str
-) -> Option<usize> {
-  let mut start = 0;
+) -> Vec<usize> {
+  let mut matched_starts = vec![0]; // starts from 0
+  let mut next_starts = vec![];
 
   for sub_rule in rule_list {
-    if let Some(checked_len) = check_rule(rules, &test_string[start..], *sub_rule) {
-      start += checked_len;
-    } else {
-      return None;
+    for start in &matched_starts {
+      let matched_lengths = check_rule(rules, &test_string[*start..], *sub_rule);
+      for len in matched_lengths {
+        next_starts.push(start + len);
+      }
     }
+
+    // Dump
+    matched_starts.clear();
+    matched_starts.append(&mut next_starts);
   }
 
-  Some(start)
+  matched_starts
 }
 
 #[cfg(test)]
@@ -177,7 +183,21 @@ mod tests {
     7: 14 5 | 1 21
     24: 14 1
     
-    aaaaabbaabaaaaababaa"#;
+    abbbbbabbbaaaababbaabbbbabababbbabbbbbbabaaaa
+    bbabbbbaabaabba
+    babbbbaabbbbbabbbbbbaabaaabaaa
+    aaabbbbbbaaaabaababaabababbabaaabbababababaaa
+    bbbbbbbaaaabbbbaaabbabaaa
+    bbbababbbbaaaaaaaabbababaaababaabab
+    ababaaaaaabaaab
+    ababaaaaabbbaba
+    baabbaaaabbaaaababbaababb
+    abbbbabbbbaaaababbbbbbaaaababb
+    aaaaabbaabaaaaababaa
+    aaaabbaaaabbaaa
+    aaaabbaabbaaaaaaabbbabbbaaabbaabaaa
+    babaaabbbaaabaababbaabababaaab
+    aabbbbbaabbbaaaaaabbbbbababaaaaabbaaabba"#;
     let lines = input.split("\n").map(|s| s.trim().to_owned()).collect();
 
     assert_eq!(solve(lines), 12);
